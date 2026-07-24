@@ -1,59 +1,351 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📍 AbsensiKP — Sistem Absensi GPS Berbasis Web
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> Aplikasi web absensi karyawan modern dengan fitur GPS, verifikasi email, QR Code, dashboard statistik, dan REST API. Dibangun menggunakan **Laravel 12** + **Bootstrap 5**.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 👤 Identitas Mahasiswa
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+| | |
+|---|---|
+| **Nama** | Muhammad Nashrullahil Wafi |
+| **NIM** | 230170130 |
+| **Program Studi** | Teknik Informatika |
+| **Institusi** | Universitas Malikussaleh |
+| **Tahun** | 2026 |
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📋 Deskripsi Singkat
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+**AbsensiKP** adalah sistem manajemen absensi karyawan berbasis web yang memungkinkan:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- ✅ Karyawan absensi menggunakan **GPS/Lokasi** dari browser HP — tanpa aplikasi tambahan
+- ✅ Admin memantau kehadiran seluruh karyawan secara real-time
+- ✅ Rekap absensi bulanan & tahunan dengan export **Excel (.xlsx)** dan **PDF**
+- ✅ Pengajuan izin/sakit digital dengan alur persetujuan admin
+- ✅ Autentikasi aman dengan **Laravel Breeze** + **Verifikasi Email via Gmail**
+- ✅ **REST API** dengan Laravel Sanctum untuk integrasi aplikasi mobile
+- ✅ Bisa diakses dari jaringan manapun menggunakan **Ngrok**
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠️ Teknologi
 
-### Premium Partners
+| Teknologi | Fungsi |
+|-----------|--------|
+| PHP 8.2 + Laravel 12 | Backend framework |
+| Laravel Breeze | Autentikasi (login, register, verifikasi email) |
+| Laravel Sanctum | REST API token authentication |
+| MySQL 8 | Database |
+| Bootstrap 5.3 | Frontend responsive CSS |
+| Chart.js 4 | Grafik dashboard |
+| Leaflet.js + OpenStreetMap | Peta interaktif GPS |
+| Maatwebsite/Excel 3.1 | Export Excel (.xlsx) |
+| barryvdh/DomPDF 3.1 | Export PDF |
+| SimpleSoftware/QrCode 4.2 | Generate QR Code |
+| Ngrok | Tunnel HTTPS publik |
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## ⚙️ Cara Instalasi
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Prasyarat
+- PHP 8.2+ dengan ekstensi: `gd`, `pdo_mysql`, `zip`, `mbstring`
+- MySQL 8.x
+- Composer
+- XAMPP (atau server lokal sejenis)
 
-## Code of Conduct
+### Langkah Instalasi
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**1. Clone project**
+```bash
+git clone https://github.com/wafiajalah070-dev/Absensi.git
+cd absensikp/absensi
+```
 
-## Security Vulnerabilities
+**2. Install dependencies**
+```bash
+composer install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**3. Konfigurasi environment**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## License
+**4. Edit file `.env`**
+```env
+APP_NAME=AbsensiKP
+APP_URL=http://localhost
+APP_TIMEZONE=Asia/Jakarta
+APP_LOCALE=id
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=absenkp
+DB_USERNAME=root
+DB_PASSWORD=
+
+SESSION_DRIVER=file
+CACHE_STORE=file
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=wafiajalah070@gmail.com
+MAIL_PASSWORD="nrsu uwcc bsul wvgx"
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="wafiajalah070@gmail.com"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+**5. Aktifkan ekstensi GD di `php.ini`**
+```ini
+; Hilangkan tanda titik koma (;) pada baris ini:
+extension=gd
+```
+
+**6. Buat database & jalankan migration**
+```bash
+# Buat database 'absenkp' di phpMyAdmin terlebih dahulu, kemudian:
+php artisan migrate --seed
+```
+
+**7. Jalankan aplikasi**
+```
+Pastikan Apache & MySQL di XAMPP sudah Start
+Buka browser: http://localhost/AbsensiKP/absensi/public
+```
+
+**8. (Opsional) Akses dari HP/jaringan lain — Ngrok**
+```bash
+# Download ngrok dari https://ngrok.com/download
+ngrok config add-authtoken YOUR_TOKEN
+ngrok http 80
+# Update APP_URL di .env dengan URL ngrok, lalu:
+php artisan config:clear
+```
+
+---
+
+## 🔐 Akun Demo
+
+| Role | Email | Password |
+|------|-------|----------|
+| **Admin** | `wafiajalah070@gmail.com` | `admin123` |
+| **Karyawan 1** | `budi@absensi.com` | `karyawan123` |
+| **Karyawan 2** | `siti@absensi.com` | `karyawan123` |
+| **Karyawan 3** | `andi@absensi.com` | `karyawan123` |
+
+> Untuk fitur verifikasi email, daftar menggunakan Gmail aktif.
+
+---
+
+## 🚀 Cara Menjalankan
+
+```bash
+# 1. Start Apache & MySQL di XAMPP Control Panel
+
+# 2. Buka browser
+http://localhost/AbsensiKP/absensi/public/login
+
+# 3. Untuk akses dari HP (jalankan di CMD terpisah)
+C:\xampp\ngrok\ngrok.exe start absensi
+
+# 4. Auto-mark alpha (opsional, berjalan tiap 10:05 WIB via scheduler)
+php artisan absensi:mark-alpha
+```
+
+---
+
+## 📱 Fitur Lengkap
+
+| Fitur | Deskripsi |
+|-------|-----------|
+| 🔑 Login & Register | Laravel Breeze dengan verifikasi email |
+| 📧 Verifikasi Email | Email terkirim via Gmail SMTP |
+| 🔑 Lupa Password | Reset password via link email |
+| 🗺️ Absensi GPS | Validasi radius lokasi kantor, peta interaktif |
+| ⏰ Deteksi Terlambat | Otomatis jika absen setelah 10:00 WIB |
+| 📊 Dashboard Admin | Statistik, bar chart, pie chart, top alpha |
+| 📈 Dashboard Karyawan | Progress kehadiran, line chart, profil |
+| 👥 CRUD Karyawan | Tambah, edit, hapus, cari karyawan |
+| 🏷️ QR Code | Generate & print QR per karyawan |
+| 📄 Izin/Sakit/Cuti | Pengajuan + persetujuan admin |
+| 📅 Rekap Bulanan | Per karyawan dengan % kehadiran |
+| 📆 Rekap Tahunan | Ringkasan 12 bulan per karyawan |
+| 📤 Export Excel | 2 sheet: Ringkasan + Detail, warna kolom |
+| 📤 Export PDF | Landscape A4, statistik + tabel detail |
+| 🔌 REST API | 16 endpoint dengan Sanctum token auth |
+| 📱 Responsive | Bootstrap 5, sidebar mobile dengan overlay |
+
+---
+
+## 🔌 REST API
+
+**Base URL:** `/api/v1`
+
+### Login
+```http
+POST /api/v1/login
+Content-Type: application/json
+
+{
+  "email": "admin@absensi.com",
+  "password": "admin123"
+}
+```
+```json
+{
+  "success": true,
+  "data": {
+    "token": "1|abc123...",
+    "token_type": "Bearer",
+    "user": { "id": 1, "name": "Administrator", "role": "admin" }
+  }
+}
+```
+
+### Semua Endpoint
+
+```
+POST   /api/v1/login                        Login
+POST   /api/v1/logout                       Logout [Auth]
+GET    /api/v1/me                           Profil user [Auth]
+
+GET    /api/v1/karyawan/absensi             Riwayat absensi [Karyawan]
+GET    /api/v1/karyawan/absensi/hari-ini    Status hari ini [Karyawan]
+POST   /api/v1/karyawan/absensi/masuk       Absen masuk GPS [Karyawan]
+POST   /api/v1/karyawan/absensi/keluar      Absen keluar GPS [Karyawan]
+GET    /api/v1/karyawan/izin                Daftar izin [Karyawan]
+POST   /api/v1/karyawan/izin                Ajukan izin [Karyawan]
+DELETE /api/v1/karyawan/izin/{id}           Batalkan izin [Karyawan]
+
+GET    /api/v1/admin/dashboard              Statistik dashboard [Admin]
+GET    /api/v1/admin/karyawan               Daftar karyawan [Admin]
+GET    /api/v1/admin/karyawan/{id}          Detail karyawan [Admin]
+GET    /api/v1/admin/rekap                  Rekap bulanan [Admin]
+GET    /api/v1/admin/izin                   Semua pengajuan izin [Admin]
+PUT    /api/v1/admin/izin/{id}              Setujui/tolak izin [Admin]
+```
+
+> Header wajib untuk endpoint Auth: `Authorization: Bearer {token}` dan `Accept: application/json`
+
+---
+
+## 📸 Dokumentasi Screenshot
+
+> Simpan screenshot di folder `docs/screenshots/` dengan nama file sesuai di bawah.
+
+### 1. Halaman Login & Autentikasi
+| Login | Register |
+|-------|----------|
+| ![Login](docs/screenshots/login.png) | ![Register](docs/screenshots/register.png) |
+
+### 2. Verifikasi Email
+![Verifikasi Email](docs/screenshots/verify-email.png)
+> Email verifikasi dikirim via Gmail SMTP ke inbox pengguna
+
+### 3. Dashboard Admin
+![Dashboard Admin](docs/screenshots/dashboard-admin.png)
+> Bar chart 7 hari, doughnut chart bulanan, tabel absensi & karyawan alpha
+
+### 4. Dashboard Karyawan
+![Dashboard Karyawan](docs/screenshots/dashboard-karyawan.png)
+> Progress kehadiran, line chart, status absensi hari ini
+
+### 5. Absensi GPS
+![Absensi GPS](docs/screenshots/absensi-gps.png)
+> Peta interaktif, deteksi radius, tombol absen masuk/keluar
+
+### 6. CRUD Karyawan (Admin)
+| Daftar Karyawan | Tambah Karyawan |
+|-----------------|-----------------|
+| ![List](docs/screenshots/karyawan-list.png) | ![Add](docs/screenshots/karyawan-add.png) |
+
+| Edit Karyawan | Hapus Karyawan |
+|---------------|----------------|
+| ![Edit](docs/screenshots/karyawan-edit.png) | ![Delete](docs/screenshots/karyawan-delete.png) |
+
+### 7. QR Code Karyawan
+![QR Code](docs/screenshots/qrcode.png)
+
+### 8. Rekap Absensi Bulanan
+![Rekap Bulanan](docs/screenshots/rekap-bulanan.png)
+
+### 9. Rekap Tahunan
+![Rekap Tahunan](docs/screenshots/rekap-tahunan.png)
+
+### 10. Pengajuan Izin
+| Form Izin (Karyawan) | Kelola Izin (Admin) |
+|----------------------|---------------------|
+| ![Izin Form](docs/screenshots/izin-form.png) | ![Izin Admin](docs/screenshots/izin-admin.png) |
+
+### 11. Export Excel
+![Export Excel](docs/screenshots/export-excel.png)
+> 2 Sheet: Ringkasan (dengan warna) + Detail absensi harian
+
+### 12. Export PDF
+![Export PDF](docs/screenshots/export-pdf.png)
+> Landscape A4 dengan statistik ringkasan dan tabel lengkap
+
+### 13. REST API — Pengujian Postman
+
+**Login API**
+![API Login](docs/screenshots/postman-login.png)
+
+### 14. Pemisahan Hak Akses Admin vs Karyawan
+| Sidebar Admin | Sidebar Karyawan |
+|---------------|-----------------|
+| ![Admin Menu](docs/screenshots/sidebar-admin.png) | ![Karyawan Menu](docs/screenshots/sidebar-karyawan.png) |
+
+> Admin: Dashboard, Scanner, Kelola Izin, Karyawan, Rekap Bulanan, Rekap Tahunan, Pengaturan Kantor  
+> Karyawan: Dashboard, Absensi GPS, Izin/Sakit, Riwayat, QR Saya
+
+### 15. Tampilan Responsive
+| Desktop | Mobile |
+|---------|--------|
+| ![Desktop](docs/screenshots/responsive-desktop.png) | ![Mobile](docs/screenshots/responsive-mobile.png) |
+
+> Mobile: sidebar tersembunyi, buka via tombol ☰, overlay saat sidebar terbuka
+
+---
+
+## 🗂️ Struktur Direktori
+
+```
+absensi/
+├── app/Http/Controllers/
+│   ├── Api/            ← REST API (Auth, Absensi, Karyawan, Izin)
+│   ├── Admin/          ← Dashboard, Karyawan, Rekap, Izin, Export, Scanner
+│   ├── Auth/           ← Laravel Breeze (Login, Register, Verify, Reset)
+│   └── Karyawan/       ← Dashboard, AbsensiGPS, Izin
+├── app/Models/         ← User, Absensi, Izin, PengaturanKantor
+├── app/Exports/        ← AbsensiExport, AbsensiTahunanExport, Sheet classes
+├── database/migrations ← 13 migration files
+├── resources/views/
+│   ├── admin/          ← dashboard, karyawan, rekap, izin, scanner, pengaturan
+│   ├── karyawan/       ← dashboard, absensi-gps, izin, riwayat, qr-saya
+│   ├── auth/           ← login, register, verify-email, forgot/reset password
+│   └── layouts/        ← app.blade.php, admin-sidebar, karyawan-sidebar
+└── routes/
+    ├── web.php         ← Web routes
+    ├── api.php         ← REST API routes (16 endpoints)
+    └── auth.php        ← Breeze auth routes
+```
+
+---
+
+## 📝 Catatan
+
+- Timezone: **Asia/Jakarta (WIB)**
+- Jam kerja: **09:00 – 17:00 WIB** | Batas terlambat: **10:00 WIB**
+- Alpha = hari kerja (Senin–Jumat) yang tidak ada record absensi
+- Scheduler auto-mark alpha berjalan tiap **10:05 WIB** (butuh `php artisan schedule:work`)
+
+---
+
+*Dibuat dengan ❤️ menggunakan Laravel 12 & Bootstrap 5*
