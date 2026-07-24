@@ -11,8 +11,6 @@
 | **Nama** | Muhammad Nashrullahil Wafi |
 | **NIM** | 230170130 |
 | **Program Studi** | Teknik Informatika |
-| **Institusi** | Universitas Malikussaleh |
-| **Tahun** | 2026 |
 
 ---
 
