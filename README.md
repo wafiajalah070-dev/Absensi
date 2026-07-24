@@ -346,4 +346,4 @@ absensi/
 
 ---
 
-*Dibuat dengan ❤️ menggunakan Laravel 12 & Bootstrap 5*
+*Dibuat menggunakan Laravel 12 & Bootstrap 5*
